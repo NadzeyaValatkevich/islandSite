@@ -1,0 +1,50 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+$height: 34px;
+$triangles-height: calc($height/2);
+.flag {
+  display: flex;
+  align-items: center;
+  padding: 7px 7px 6px 15px;
+  position: relative;
+  height: $height;
+  background-color: $secondaryColor;
+  @media (max-width: 768px) {
+    padding: 5px 5px 6px 5px;
+    height: 28px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    right: -15px;
+    border-left: $triangles-height solid $secondaryColor;
+    border-top: $triangles-height solid transparent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    right: -15px;
+    border-left: $triangles-height transparent;
+    border-right: $triangles-height solid transparent;
+    border-top: $triangles-height solid $secondaryColor;
+  }
+
+  .flag-text {
+    @include text($text-color, 17px, 500, normal, none);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}

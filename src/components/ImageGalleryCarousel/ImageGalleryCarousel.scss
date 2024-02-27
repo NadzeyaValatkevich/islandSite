@@ -1,0 +1,26 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+
+.coverOrigin {
+  img {
+    object-fit: cover;
+  }
+}
+
+.containOrigin {
+  img {
+    object-fit: contain;
+  }
+}
+.coverThumbnail {
+
+  span > img {
+    object-fit: cover;
+  }
+}
+
+.containThumbnail {
+  span > img {
+    object-fit: contain;
+  }
+}
+

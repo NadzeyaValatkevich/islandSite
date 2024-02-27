@@ -1,0 +1,39 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/extensions.scss";
+
+.container {
+  width: 100%;
+  position: relative;
+
+  & :global(.slick-slide) {
+    padding: 5px 20px;
+    @media (max-width: 768px) {
+      padding: 5px 10px;
+    }
+  }
+
+  & :global(.slick-list) {
+    margin: 0 -20px;
+    @media (max-width: 768px) {
+      margin: 0 -10px;
+    }
+  }
+
+  & :global(.custom_paging) {
+    @media (max-width: 550px) {
+      margin-top: 0px;
+    }
+  }
+
+  @extend %customPaging;
+  @extend %arrowsPaginator;
+}
+
+.preload {
+  text-align: center;
+}
+
+.cap {
+  @include text($text-color, 20px, 500, 24px, none);
+  padding: 30px;
+}

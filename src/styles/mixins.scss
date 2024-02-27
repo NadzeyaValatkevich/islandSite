@@ -1,0 +1,33 @@
+@import "varaibles.scss";
+
+@mixin text($color, $fontSize, $fontWeight, $lineHeight, $textTransform) {
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  text-transform: $textTransform;
+}
+
+@mixin flex($direction, $justifyContent, $alignItems, $wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-wrap: $wrap;
+}
+
+@mixin adaptive-value($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: $property + px;
+  #{$property}: calc(
+    #{$minSize + px} + #{$addSize} * ((100vw - 360px) / (1440 - 360))
+  );
+}
+
+@mixin ellipsis($-webkit-line-clamp) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $-webkit-line-clamp;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,46 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 768px) and (min-width: 630px) {
+    flex-direction: row;
+    gap: 5px;
+  }
+  @media (max-width: 500px) {
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .price {
+    min-width: 129px;
+    @media (max-width: 900px) {
+      min-width: 110px;
+    }
+    @media (max-width: 310px) {
+      font-size: 15px;
+      min-width: 90px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
+    @media (max-width: 320px) {
+      font-size: 15px;
+    }
+  }
+
+  span {
+    @include text($text-color, 35px, 600, 22px, none);
+    @media (max-width: 1000px) {
+      font-size: 20px;
+    }
+    @media (max-width: 310px) {
+      font-size: 16px;
+    }
+  }
+}

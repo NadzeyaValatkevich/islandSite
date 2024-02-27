@@ -1,0 +1,105 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/extensions.scss";
+
+.kitchen-container {
+  width: 100%;
+  @media (max-width: 360px) {
+    @include flex(column-reverse, flex-start, center, nowrap);
+  }
+
+  .meal-time-block {
+    margin-bottom: 50px;
+    width: 100%;
+    @media (max-width: 768px) {
+      margin-bottom: 25px;
+    }
+    @media (max-width: 360px) {
+      margin-bottom: 0px;
+    }
+
+    .meal-time-title {
+      @include text($text-color, 50px, 500, normal, uppercase);
+      margin-bottom: 15px;
+      @media (max-width: 768px) {
+        font-size: 25px;
+        margin-bottom: 5px;
+      }
+    }
+
+    .meal-time {
+      @include flex(row, center, center, nowrap);
+      gap: 31px;
+      @media (max-width: 768px) {
+        gap: 21px;
+      }
+      @media (max-width: 550px) {
+        flex-direction: column;
+      }
+      @media (max-width: 360px) {
+        @include flex(column, flex-start, center, nowrap);
+        gap: 10px;
+      }
+    }
+  }
+
+  .meal-slider-block {
+    width: 100%;
+
+    .meal-slider-title {
+      @include text($text-color, 40px, 500, normal, uppercase);
+      margin-bottom: 25px;
+      @media (max-width: 768px) {
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
+      @media (max-width: 360px) {
+        font-size: 18px;
+      }
+    }
+
+    .meal-slider {
+      position: relative;
+      width: 100%;
+
+      & :global(.slick-slider) {
+        & :global(.slick-list) {
+          margin: 0 -20px;
+          @media (max-width: 768px) {
+            margin: 0 -17px;
+          }
+
+          & :global(.slick-track) {
+            padding: 5px 0px;
+
+            & :global(.slick-slide) {
+              padding: 0 20px;
+              @media (max-width: 768px) {
+                padding: 0 17px;
+              }
+
+              & > div {
+                @include flex(column, flex-start, null, nowrap);
+                gap: 25px;
+                @media (max-width: 768px) {
+                  gap: 20px;
+                }
+              }
+            }
+          }
+        }
+        & :global(.custom_paging) {
+          @media (max-width: 360px) {
+            margin-bottom: 25px;
+          }
+        }
+      }
+      @extend %customPaging;
+    }
+  }
+
+  .preload {
+    font-weight: 700;
+    text-align: center;
+  }
+}

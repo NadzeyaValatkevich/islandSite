@@ -1,0 +1,44 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+
+.form {
+  max-width: 761px;
+  display: flex;
+  background-color: $secondaryColor;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 50px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px 1px rgba(126, 82, 14, 0.4);
+  @media (max-width: 768px) {
+    padding: 20px 28px;
+  }
+  @media (max-width: 450px) {
+    align-items: flex-start;
+    flex-direction: column;
+    height: 127px;
+  }
+
+  p {
+    @include text($text-color, 25px, 500, 30px, uppercase);
+    @media (max-width: 768px) {
+      line-height: normal;
+      font-size: 18px;
+    }
+  }
+
+  button {
+    @include text($colorWhite, 20px, 500, normal, none);
+    flex-shrink: 0;
+    @media (max-width: 768px) {
+      height: 40px;
+      font-size: 16px;
+    }
+    @media (max-width: 550px) {
+      max-width: 181px;
+    }
+    @media (max-width: 450px) {
+      max-width: 100%;
+    }
+  }
+}

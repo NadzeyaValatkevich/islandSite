@@ -1,0 +1,58 @@
+@import "../../styles/varaibles";
+@import "../../styles/mixins";
+
+.menu-button-container {
+  width: 48px;
+  height: 42px;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: 1200px) {
+    display: flex;
+  }
+  @media (max-width: 768px) {
+    width: 27px;
+    height: 22px;
+  }
+  @media (max-width: 360px) {
+    width: 23px;
+    height: 20px;
+  }
+  .menu-button {
+    height: fit-content;
+    width: 30px;
+    @include flex(column, center, center, null);
+    .line {
+      display: block;
+      background-color: #fff;
+      position: absolute;
+      height: 4px;
+      width: 30px;
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius: 2px;
+      background-color: $secondaryColor;
+      @media (max-width: 768px) {
+        //background-color: $secondaryColor;
+        width: 27px;
+      }
+      @media (max-width: 360px) {
+        width: 23px;
+      }
+      &::before {
+        content: "";
+        margin-top: -8px;
+        @extend .line;
+      }
+      &::after {
+        content: "";
+        margin-top: 8px;
+        @extend .line;
+      }
+      &.lineBg {
+        background-color: $secondaryColor;
+      }
+    }
+  }
+}

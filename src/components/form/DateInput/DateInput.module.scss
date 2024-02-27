@@ -1,0 +1,56 @@
+@import "../../../styles/varaibles.scss";
+
+.label {
+  position: relative;
+
+  input {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid $primaryColor;
+    padding: 5px 5px 5px 23px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 18px;
+    width: 100%;
+    background: none;
+  }
+
+  p {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+  }
+
+  div {
+    position: absolute;
+    left: 0px;
+    bottom: 8px;
+  }
+}
+
+.error {
+  input {
+    border-bottom: 3px solid #a01704;
+    position: relative;
+    display: block;
+  }
+}
+
+.error-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  color: $secondaryColor;
+  background-color: #a01704;
+  border-radius: 100%;
+  right: 0px;
+  left: unset !important;
+  z-index: 4;
+}

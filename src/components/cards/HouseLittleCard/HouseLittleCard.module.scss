@@ -1,0 +1,98 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+
+.card {
+  max-width: 379px;
+  height: 401px;
+  position: relative;
+  background: $colorWhite;
+  box-shadow: 0px 4px 17px 5px rgba(218, 203, 203, 0.4);
+  @media (max-width: 768px) {
+    max-height: 268px;
+    height: 100%;
+    margin-bottom: 25px;
+  }
+  @media (max-width: 500px) {
+    margin-bottom: 15px;
+    max-width: 464px;
+    height: 100%;
+    max-height: 320px;
+  }
+  @media (max-width: 360px) {
+    max-width: 330px;
+    //max-height: 246px;
+  }
+
+  .linkBlock {
+    padding: 0px 0px 72.3% 0px;
+    position: relative;
+
+    @media (max-width: 768px) {
+      padding: 0px 0px 55.3% 0px;
+    }
+
+    .contain {
+      object-fit: contain;
+    }
+
+    .cover {
+      object-fit: cover;
+    }
+
+    img {
+      max-width: 100%;
+      height: calc(194px + (274 - 194) * ((100vw - 768px) / (1440 - 768)));
+
+      @media(max-width: 500px) {
+        height: calc(194px + (274 - 194) * ((100vw - 360px) / (500 - 360)));
+      }
+    }
+  }
+
+  .text-content {
+    padding: 15px 25px 23px;
+    @media (max-width: 768px) {
+      padding: 15px 23px;
+    }
+
+    h1 {
+      @include text($text-color, 20px, 500, normal, none);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      @media (max-width: 900px) {
+        -webkit-line-clamp: 2;
+      }
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+    }
+
+    p {
+      @include text($text-color, 18px, 400, normal, null);
+      margin-top: 5px;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      @media (max-width: 1050px) {
+        -webkit-line-clamp: 5;
+      }
+      @media (max-width: 900px) {
+        -webkit-line-clamp: 6;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.flag {
+  position: absolute;
+  top: 10px;
+  left: -10px;
+}

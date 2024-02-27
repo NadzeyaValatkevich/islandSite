@@ -1,0 +1,98 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+.not-found-block {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+  .description {
+    @include flex(column, center, center, nowrap);
+    gap: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @media (max-width: 768px) {
+      gap: 10px;
+    }
+
+    .number {
+      @include text($text-color, null, 400, normal, none);
+      @include adaptive-value(font-size, 200, 50);
+    }
+
+    .text {
+      @include text($text-color, null, 800, 52px, none);
+      @include adaptive-value(font-size, 42, 18);
+    }
+
+    .big {
+      position: absolute;
+      @include adaptive-value(width, 167, 70);
+      @include adaptive-value(height, 167, 70);
+      @include adaptive-value(top, -52, -44);
+      @include adaptive-value(right, -18, 1);
+      z-index: -1;
+    }
+  }
+
+  .veryBig {
+    position: absolute;
+    @include adaptive-value(top, -191, -55);
+    @include adaptive-value(left, -138, -50);
+    @include adaptive-value(width, 387, 100);
+    @include adaptive-value(height, 387, 100);
+    background-color: $text-color;
+    border-radius: 50%;
+  }
+
+  .little {
+    position: absolute;
+    top: 58%;
+    left: 11%;
+    @include adaptive-value(width, 63, 30);
+    @include adaptive-value(height, 63, 30);
+  }
+
+  .big,
+  .little {
+    border-radius: 50%;
+    background-color: $secondaryColor;
+  }
+
+  .little-line-block {
+    position: absolute;
+    width: 37%;
+    height: 33%;
+    top: 0px;
+    right: 0px;
+    .middle {
+      position: absolute;
+      @include adaptive-value(width, 141, 40);
+      @include adaptive-value(height, 141, 40);
+      @include adaptive-value(top, 148, 30);
+      right: 18%;
+      border-radius: 50%;
+      background-color: $secondaryColor;
+    }
+  }
+
+  .big-line-block {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 70%;
+    max-height: 543px;
+    z-index: -1;
+    .little-right {
+      position: absolute;
+      @include adaptive-value(width, 63, 30);
+      @include adaptive-value(height, 63, 30);
+      @include adaptive-value(top, 25, 0);
+      @include adaptive-value(right, 317, 64);
+      background-color: $text-color;
+      border-radius: 50%;
+    }
+  }
+}

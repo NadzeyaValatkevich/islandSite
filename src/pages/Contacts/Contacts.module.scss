@@ -1,0 +1,68 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+.contacts-block {
+  @include flex(row, center, center, nowrap);
+  gap: 72px;
+  margin-bottom: 50px;
+  @media (max-width: 768px) {
+    gap: 32px;
+    margin-bottom: 25px;
+  }
+
+  .logo {
+    width: 100%;
+    height: 100%;
+    max-width: 240px;
+    max-height: 400px;
+    @media (max-width: 768px) {
+      max-width: 160px;
+      max-height: 266px;
+    }
+    @media (max-width: 400px) {
+      display: none;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .contacts {
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    padding: 34px 87px 57px 45px;
+    background-color: $secondaryColor;
+    box-shadow: inset 0px 0px 100px 5px rgba(122, 101, 59, 0.9);
+    @media (max-width: 768px) {
+      padding: 20px 24px 20px 20px;
+    }
+    @media (max-width: 550px) {
+      padding-right: 9px;
+      padding-left: 9px;
+    }
+    @media (max-width: 400px) {
+      background-color: $colorWhite;
+      box-shadow: none;
+      padding: 0px;
+    }
+
+    > div:nth-child(2) {
+      > div:first-child {
+        > p:nth-child(3) {
+          @media (max-width: 768px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.map {
+  width: 100%;
+  height: 378px;
+  margin-bottom: -30px;
+}

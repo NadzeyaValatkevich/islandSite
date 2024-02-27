@@ -1,0 +1,279 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/extensions.scss";
+
+.card {
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  background: $colorWhite;
+  padding: 26px 42px 20px 40px;
+  box-shadow: 0px 4px 17px 5px rgba(218, 203, 203, 0.4);
+  @media (max-width: 1120px) {
+    gap: 10px;
+    flex-direction: column;
+    padding: 0px 0px 20px 0px;
+  }
+  .beds-container {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+
+    @media (max-width: 550px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    & p {
+      @include text($text-color, 20px, 400, normal, uppercase);
+      @media (max-width: 768px) {
+        font-size: 16px;
+      }
+      @media (max-width: 550px) {
+        text-transform: none;
+        margin-right: 5px;
+      }
+    }
+  }
+  .card-left {
+    width: 100%;
+    max-width: 528px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    @media (max-width: 1120px) {
+      flex-direction: column-reverse;
+    }
+    @media (max-width: 768px) {
+      gap: 0px;
+    }
+
+    .title {
+      @include text($text-color, null, 600, normal, uppercase);
+      @include adaptive-value(font-size, 35, 18);
+      margin: 0;
+      min-width: 0px;
+      max-width: 500px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      @media (max-width: 1120px) {
+        padding: 0px 15px;
+        text-transform: none;
+      }
+      @media (max-width: 768px) {
+        @include text($text-color, null, 500, normal, none);
+        max-width: 250px;
+      }
+      @media (max-width: 670px) {
+        max-width: 180px;
+      }
+      @media (max-width: 500px) {
+        max-width: 250px;
+      }
+      @media (max-width: 360px) {
+        max-width: 200px;
+      }
+    }
+
+    & :global(.slick-slider) {
+      height: 382px;
+      @media (max-width: 768px) {
+        max-height: 236px;
+      }
+      @media (max-width: 500px) {
+        max-height: 292px;
+      }
+      @media (max-width: 360px) {
+        max-height: 236px;
+      }
+
+      & :global(.slick-list) {
+        overflow: visible !important;
+        overflow-x: clip !important;
+        height: auto;
+
+        .contain {
+          object-fit: contain;
+        }
+
+        .cover {
+          object-fit: cover;
+        }
+
+        img {
+          width: 100%;
+          max-height: 330px;
+          height: 330px;
+          @media (max-width: 768px) {
+            max-height: 194px;
+          }
+          @media (max-width: 500px) {
+            max-height: 250px;
+          }
+          @media (max-width: 360px) {
+            max-height: 194px;
+          }
+        }
+      }
+    }
+
+    @extend %arrowsBlack;
+    @extend %dots;
+  }
+
+  .card-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 52px;
+    flex: 1 1;
+    @media (max-width: 1120px) {
+      padding: 0px 15px 0px 15px;
+    }
+
+    .iconsContainer {
+      @include flex(row, flex-end, center, nowrap);
+      gap: 7px;
+      @media (max-width: 768px) {
+        margin-bottom: 10px;
+      }
+
+      .person-number {
+        display: flex;
+        gap: 7px;
+        @media (max-width: 1120px) {
+          position: absolute;
+          top: 405px;
+          gap: 4px;
+        }
+        @media (max-width: 768px) {
+          top: 237px;
+        }
+        @media (max-width: 500px) {
+          top: 291px;
+        }
+        @media (max-width: 360px) {
+          top: 234px;
+        }
+
+        div {
+          @include flex(row, center, center, nowrap);
+          @include text($text-color, null, 400, normal, none);
+          @include adaptive-value(font-size, 30, 20);
+        }
+      }
+
+      .iconsBlock {
+        display: flex;
+        gap: 7px;
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
+    }
+
+    .descriptionShort {
+      @include text($text-color, 18px, 400, normal, none);
+      @include ellipsis(3);
+      @media (max-width: 1120px) {
+        margin-bottom: 20px;
+      }
+      @media (max-width: 768px) {
+        -webkit-line-clamp: 4;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .descriptionLong {
+      @include text($text-color, 18px, 400, normal, none);
+      @include ellipsis(4);
+      @media (max-width: 1120px) {
+        margin-bottom: 26px;
+      }
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .infoContainer {
+      .priceInfo {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .priceText {
+          font-size: 18px;
+          margin-right: 10px;
+          margin-top: 7px;
+          max-width: 140px;
+          @media (max-width: 1000px) {
+            margin-top: 1px;
+          }
+          @media (max-width: 768px) {
+            font-size: 16px;
+            max-width: 63px;
+          }
+          @media (max-width: 320px) {
+            font-size: 15px;
+          }
+        }
+
+        .priceWrapper {
+          display: flex;
+          gap: 51px;
+          @media (max-width: 1180px) {
+            gap: 31px;
+          }
+          @media (max-width: 900px) {
+            gap: 20px;
+          }
+          @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 4px;
+          }
+        }
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 1120px) {
+        margin-top: 20px;
+      }
+      @media (max-width: 680px) and (min-width: 500px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+      @media (max-width: 310px) {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        width: 48%;
+        @media (max-width: 900px) {
+          font-size: 18px;
+        }
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+        @media (max-width: 680px) and (min-width: 500px) {
+          max-width: 100%;
+          width: 100%;
+        }
+        @media (max-width: 350px) {
+          font-size: 14px;
+        }
+        @media (max-width: 310px) {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

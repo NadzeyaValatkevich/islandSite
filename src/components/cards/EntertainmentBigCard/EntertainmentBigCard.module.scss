@@ -1,0 +1,163 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/extensions.scss";
+
+.card {
+  max-width: 380px;
+  @include flex(column, null, null, nowrap);
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+  max-height: 522px;
+  display: flex;
+  box-shadow: 0px 0px 17px 5px rgba(218, 203, 203, 0.4);
+  padding: 25px 30px 12px 30px;
+
+  @media (max-width: 950px) {
+    max-width: 443px;
+    padding: 20px 25px 20px 20px;
+  }
+  @media (max-width: 768px) {
+    max-width: 352px;
+    height: 390px;
+    padding: 20px 25px 20px 20px;
+  }
+  @media (max-width: 550px) {
+    max-width: 514px;
+    height: 438px;
+  }
+  @media (max-width: 360px) {
+    max-width: 330px;
+    height: 366px;
+  }
+
+  .title {
+    cursor: pointer;
+    @include ellipsis(1);
+    @include text($text-color, 30px, 500, normal, uppercase);
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .contain {
+    object-fit: contain;
+  }
+
+  .cover {
+    object-fit: cover;
+  }
+
+  img {
+    height: 215px;
+    //object-fit: contain;
+    @media (max-width: 950px) {
+      max-width: 394px;
+    }
+    @media (max-width: 768px) {
+      height: 167px;
+    }
+    @media (max-width: 550px) {
+      max-width: 465px;
+      height: 215px;
+    }
+    @media (max-width: 360px) {
+      height: 167px;
+    }
+  }
+
+  & :global(.slick-slider) {
+    height: 250px;
+    margin-bottom: 12px;
+    @media (max-width: 768px) {
+      height: 205px;
+      margin-bottom: 0px;
+    }
+    @media (max-width: 550px) {
+      height: 250px;
+    }
+    @media (max-width: 360px) {
+      height: 200px;
+    }
+
+    & :global(.slick-list) {
+      max-height: 215px;
+      height: 100%;
+      overflow: visible !important;
+      overflow-x: clip !important;
+      @media (max-width: 768px) {
+        height: 167px;
+      }
+      @media (max-width: 550px) {
+        height: 250px;
+      }
+      @media (max-width: 360px) {
+        height: 167px;
+      }
+
+      & :global(.slick-track) {
+        height: 100%;
+
+        & :global(.slick-slide) {
+          width: 100%;
+        }
+      }
+    }
+    @extend %dots;
+    @extend %arrowsBlack;
+
+    & :global(.slick-dots) {
+      @media (max-width: 768px) {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .description_short {
+    @include text($text-color, 16px, 400, normal, none);
+    margin-top: 14px;
+    height: 80px;
+    @include ellipsis(4);
+    @media (max-width: 768px) {
+      height: 68px;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  }
+
+  .footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 1140px) {
+      flex-direction: column;
+      gap: 10px;
+    }
+    @media (max-width: 950px) {
+      flex-direction: row;
+      gap: 10px;
+    }
+    @media (max-width: 768px) {
+      margin-top: 10px;
+    }
+    @media (max-width: 580px) and (min-width: 550px) {
+      flex-direction: column;
+    }
+
+    & div {
+      @include text($text-color, 18px, 500, normal, none);
+      @media (max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+
+    .more {
+      cursor: pointer;
+    }
+  }
+}
+.preload {
+  text-align: center;
+}

@@ -1,0 +1,21 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+.block {
+  height: auto;
+  margin-top: 50px;
+  @media (max-width: 768px) {
+    margin-top: 25px;
+  }
+  .title {
+    @include text($text-color, 50px, 500, normal, uppercase);
+    margin-bottom: 10px;
+    @media (max-width: 768px) {
+      font-size: 25px;
+      margin-bottom: 0px;
+    }
+    @media (max-width: 360px) {
+      font-size: 18px;
+    }
+  }
+}

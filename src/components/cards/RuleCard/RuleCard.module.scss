@@ -1,0 +1,82 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+
+$height: 95px;
+$triangles-height: calc($height/2);
+
+.flag {
+  display: flex;
+  align-items: center;
+  padding: 17px 5px 18px 41px;
+  position: relative;
+  max-width: 331px;
+  min-width: 252px;
+  height: $height;
+  background-color: $secondaryColor;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+  @media (max-width: 1000px) {
+    max-width: 410px;
+    min-width: 230px;
+  }
+  @media (max-width: 768px) {
+    padding: 5px 5px 3px 41px;
+    height: 82px;
+  }
+  @media (max-width: 600px) {
+    max-width: 550px;
+    min-width: 205px;
+  }
+  @media (max-width: 360px) {
+    padding-left: 30px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    right: -23px;
+    border-left: 24px solid $secondaryColor;
+    border-top: calc($height/2) solid transparent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    right: -23px;
+    border-left: $triangles-height transparent;
+    border-right: 24px solid transparent;
+    border-top: $triangles-height solid $secondaryColor;
+  }
+
+  div {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: translateX(-50%);
+
+    svg {
+      width: 66px;
+      height: 96px;
+      @media (max-width: 768px) {
+        width: 55px;
+        height: 82px;
+      }
+    }
+  }
+
+  p {
+    @include text($text-color, 16px, 500, normal, none);
+    //-ms-overflow-style: none;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+}

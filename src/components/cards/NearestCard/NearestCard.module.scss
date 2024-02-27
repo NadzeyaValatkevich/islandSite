@@ -1,0 +1,147 @@
+@import "../../../styles/varaibles.scss";
+@import "../../../styles/mixins.scss";
+@import "../../../styles/extensions.scss";
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  min-height: 450px;
+  background: $colorWhite;
+  padding: 26px 42px 20px 40px;
+  box-shadow: 0px 4px 17px 5px rgba(218, 203, 203, 0.4);
+  @media (max-width: 1000px) {
+    height: 750px;
+    flex-direction: column;
+    padding: 0px;
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    height: 700px;
+  }
+  @media (max-width: 550px) {
+    margin-bottom: 26px;
+    height: 650px;
+  }
+
+  .card-left {
+    @include flex(column, null, null, nowrap);
+    width: 100%;
+    max-width: 528px;
+    gap: 20px;
+    @media (max-width: 1000px) {
+      gap: 10px;
+    }
+
+    .contain {
+      object-fit: contain;
+    }
+
+    .cover {
+      object-fit: cover;
+    }
+
+    img {
+      max-height: 330px;
+      @media (max-width: 1000px) {
+        height: 300px;
+      }
+      @media (max-width: 768px) {
+        height: 194px;
+      }
+      @media (max-width: 550px) {
+        height: 250px;
+      }
+      @media (max-width: 360px) {
+        height: 194px;
+      }
+    }
+
+    & :global(.slick-list) {
+      margin: 0 -20px;
+      overflow: visible !important;
+      overflow-x: clip !important;
+      @media (max-width: 1000px) {
+        margin: 0 -10px;
+      }
+
+      & :global(.slick-slide) {
+        width: 100%;
+        padding: 0 20px;
+        @media (max-width: 1000px) {
+          padding: 0 10px;
+        }
+        @media (max-width: 550px) {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    @extend %arrowsBlack;
+    @extend %dots;
+  }
+
+  .card-right {
+    @include flex(column, flex-start, flex-start, nowrap);
+    gap: 20px;
+    flex: 1 1;
+    @media (max-width: 1000px) {
+      padding: 10px;
+    }
+    @media (max-width: 550px) {
+      gap: 10px;
+    }
+  }
+
+  .title {
+    min-width: 0;
+    @include ellipsis(3);
+    color: $text-color;
+    @include text($text-color, null, 600, normal, uppercase);
+    @include adaptive-value(font-size, 35, 18);
+    @media (max-width: 768px) {
+      font-weight: 600;
+    }
+    @media (max-width: 650px) {
+      font-size: 18px;
+    }
+  }
+
+  .description {
+    overflow: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    padding-right: 10px;
+    @media (max-width: 768px) {
+      font-size: 14px;
+      -webkit-line-clamp: 10;
+    }
+    @media (max-width: 550px) and (min-width: 361px) {
+      -webkit-line-clamp: 7;
+    }
+  }
+
+  .location {
+    padding-right: 10px;
+    @include ellipsis(4);
+    bottom: 0px;
+    @media (max-width: 768px) {
+      font-size: 14px;
+      @include ellipsis(5);
+    }
+  }
+}
+
+.card + .card {
+  margin-top: 50px;
+  @media (max-width: 1000px) {
+    margin-top: 26px;
+  }
+}
+
+.preload {
+  text-align: center;
+}

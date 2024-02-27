@@ -1,0 +1,295 @@
+@import "varaibles.scss";
+@import "mixins.scss";
+
+%slickActive {
+  color: white !important;
+  border: solid 1px $text-color;
+  top: -1px;
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+%h1Title {
+  @include text($text-color, 30px, 500, normal, uppercase);
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+%h2Title {
+  @include text($text-color, 25px, 500, normal, uppercase);
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+%persNum {
+  @include text($text-color, 30px, 400, normal, none);
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+%fullscreen {
+  & :global(.fullscreen) {
+    position: absolute;
+    display: block;
+    width: 90%;
+    max-height: 80%;
+    object-fit: contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    & :global(.image-gallery-slide-wrapper) {
+      & :global(.image-gallery-swipe) {
+        height: 100%;
+
+        & :global(.image-gallery-slides) {
+          height: 100%;
+
+          & :global(.image-gallery-slide) {
+            height: 100%;
+
+            & :global(.image-gallery-image) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    & :global(.image-gallery-thumbnails) {
+      display: none;
+    }
+
+    & :global(.image-gallery-thumbnails-wrapper) {
+      display: none;
+    }
+
+    & :global(.image-gallery-fullscreen-button) {
+      top: 0px;
+      transform: translateY(-100%);
+      bottom: unset;
+    }
+
+    & :global(.image-gallery-icon.image-gallery-fullscreen-button) {
+      & svg {
+        display: none;
+      }
+
+      &::after {
+        content: "x";
+        font-size: 30px;
+        color: white;
+        font-weight: 700;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  & :global(.image-gallery-content.fullscreen) {
+    @extend :global(.image-gallery-slide-wrapper);
+    grid-template-columns: 1fr;
+    background: none;
+  }
+  & :global(.image-gallery-image) {
+    //max-height: 50vh !important;
+  }
+}
+
+%iconGallery {
+  & :global(.image-gallery-right-nav),
+  & :global(.image-gallery-left-nav) {
+    & :global(.image-gallery-svg) {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+      }
+      @media (max-width: 360px) {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  & :global(.image-gallery-right-nav) {
+    & :global(.image-gallery-svg) {
+      right: 0px;
+    }
+  }
+  & :global(.image-gallery-left-nav) {
+    & :global(.image-gallery-svg) {
+      left: 0px;
+    }
+  }
+  & :global(.image-gallery-fullscreen-button) {
+    padding: 5px;
+    width: 60px;
+    height: 60px;
+    @include flex(row, flex-end, flex-end, nowrap);
+  }
+
+  & :global(.image-gallery-svg) {
+    polyline, path {
+      color: $text-color;
+    }
+  }
+}
+
+%arrowsWhite {
+  & :global(.slick-arrow) {
+    width: 50px;
+    height: 50px;
+    top: 30%;
+    z-index: 1;
+  }
+
+  & :global(.slick-prev) {
+    left: 0;
+  }
+  & :global(.slick-prev:before) {
+    content: url("../assets/icons/ArrowPrev/ArrowPrev.svg");
+  }
+  & :global(.slick-next) {
+    right: 0;
+  }
+  & :global(.slick-next:before) {
+    content: url("../assets/icons/ArrowNext/ArrowNext.svg");
+  }
+}
+
+%arrowsBlack {
+  & :global(.slick-arrow) {
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+  }
+
+  & :global(.slick-prev) {
+    left: -40px;
+  }
+
+  & :global(.slick-prev:before) {
+    content: url("../assets/icons/ArrowPrevBlack/ArrowPrevBlack.svg");
+  }
+
+  & :global(.slick-next) {
+    right: -40px;
+  }
+
+  & :global(.slick-next:before) {
+    content: url("../assets/icons/ArrowNextBlack/ArrowNextBlack.svg");
+  }
+}
+
+%dots {
+  & :global(.slick-dots) {
+    position: static;
+    margin-top: 20px;
+
+    & li {
+      width: 10px;
+      height: 10px;
+    }
+
+    & li button {
+      display: block;
+      padding: 0;
+      border: solid 1px $text-color;
+      border-radius: 100%;
+      background-color: $text-color;
+      width: 10px;
+      height: 10px;
+    }
+
+    & li button:before {
+      content: "";
+    }
+  }
+
+  & :global(.slick-dots li.slick-active button) {
+    background-color: white;
+  }
+}
+
+%customPaging {
+  & :global(.custom_paging) {
+    margin-top: 50px;
+    display: flex !important;
+    justify-content: center;
+    @media (max-width: 768px) {
+      margin-top: 25px;
+    }
+    @media (max-width: 550px) {
+      margin-top: 20px;
+    }
+
+    & :global(ul) {
+      display: flex;
+    }
+
+    & :global(li.slick-active div) {
+      background-color: $colorWhite;
+      color: $text-color;
+    }
+
+    & div {
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background-color: $text-color;
+      margin-right: 10px;
+      border: 2px solid $text-color;
+      cursor: pointer;
+      @include flex(row, center, center, nowrap);
+      @include text($colorWhite, 35px, 500, normal, uppercase);
+       &:hover {
+        background-color: $secondaryColor;
+        color:$text-color;
+      };
+      @media (max-width: 768px) {
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+%arrowsPaginator {
+  .blockNav {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    @media (max-width: 400px) {
+      bottom: -24px;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+
+    .slide-m-prev,
+    .slide-m-next {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: solid 2px $text-color;
+      background-color: $text-color;
+      cursor: pointer;
+      @media (max-width: 768px) {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .slide-m-prev {
+      background-image: url("../assets/icons/ArrowPrev/ArrowPrev.svg");
+      margin-right: 10px;
+    }
+    .slide-m-next {
+      background-image: url("../assets/icons/ArrowNext/ArrowNext.svg");
+    }
+  }
+}

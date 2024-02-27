@@ -1,0 +1,27 @@
+@import "./varaibles.scss";
+@import "./fonts.scss";
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+img {
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  background-color: $secondaryColor;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $primaryColor;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: $secondaryColor;
+}

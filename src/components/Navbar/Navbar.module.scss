@@ -1,0 +1,37 @@
+@import "../../styles/varaibles.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  width: 100%;
+  @include flex(row, space-between, null, null);
+
+  .nav-link {
+    color: white;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 0px;
+      background-color: $colorWhite;
+      transition-duration: 0.25s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &.active {
+      font-weight: 600;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 100%;
+        background-color: $colorWhite;
+      }
+    }
+  }
+}
